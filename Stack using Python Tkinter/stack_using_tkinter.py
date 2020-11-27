@@ -1,3 +1,4 @@
+                                # Stack Visualizer #
 from tkinter import *
 from tkinter import messagebox
 import time
@@ -52,8 +53,7 @@ class StackVisualizer:
           self.top_y = 400
 
           #Make canvas
-          self.stack_canvas = Canvas(self.window, width=self.canvas_width, height=self.canvas_height,
-                                     bg="chocolate", relief=RAISED, bd=10)
+          self.stack_canvas = Canvas(self.window, width=self.canvas_width, height=self.canvas_height,bg="chocolate", relief=RAISED, bd=10)
           self.stack_canvas.pack(fill=BOTH)
 
           #Function call
@@ -62,19 +62,14 @@ class StackVisualizer:
           self.heading_and_sub_heading()
           self.set_index()
 
-          #messagebox.showinfo("Information","Only integer value allowed here for this stack")
-
       def heading_and_sub_heading(self): #Main heading, sub heading and indicator label set
-          self.heading_name = Label(self.stack_canvas, text="Stack Visualizer", bg="chocolate", fg="brown",
-                                    font=("Helvetica",30,"bold","italic"))
+          self.heading_name = Label(self.stack_canvas, text="Stack Visualizer", bg="chocolate", fg="brown", font=("Helvetica",30,"bold","italic"))
           self.heading_name.place(x=140,y=30)
 
-          self.sub_heading = Label(self.stack_canvas, text="Index number", bg="chocolate", fg="#99ff33",
-                                    font=("Helvetica",20,"bold","italic"))
+          self.sub_heading = Label(self.stack_canvas, text="Index number", bg="chocolate", fg="#99ff33",  font=("Helvetica",20,"bold","italic"))
           self.sub_heading.place(x=20,y=300)
 
-          self.stack_indicator = Label(self.stack_canvas, text="Stack Container", bg="chocolate", fg="#00FF00",
-                                    font=("Helvetica",20,"bold","italic"))
+          self.stack_indicator = Label(self.stack_canvas, text="Stack Container", bg="chocolate", fg="#00FF00",  font=("Helvetica",20,"bold","italic"))
           self.stack_indicator.place(x=180,y=450)
 
       def make_buttons(self): #Make Buttons to access and make top with arrow
@@ -135,9 +130,7 @@ class StackVisualizer:
 
               self.element_take_entry.focus()
 
-              self.add_btn = Button(self.window, text="Add", font=("Arial", 10, "bold"),
-                                    bg="blue", fg="red", relief=RAISED, bd=3, padx=3, pady=3,
-                                    command=lambda: self.make_block('<Return>'))
+              self.add_btn = Button(self.window, text="Add", font=("Arial", 10, "bold"), bg="blue", fg="red", relief=RAISED, bd=3, padx=3, pady=3, command=lambda: self.make_block('<Return>'))
               self.add_btn.place(x=400, y=560)
               self.window.bind('<Return>',self.make_block)
 
@@ -185,7 +178,6 @@ class StackVisualizer:
                   self.block_right+= 2
                   self.block_make = self.stack_canvas.create_rectangle(self.block_left, self.block_up, self.block_right, self.block_down, fill="black", width=2, outline="blue")
                   self.entry_number.place(x=self.number_set_x, y=self.number_set_y)
-                  time.sleep(0.01)
                   self.window.update()
 
               #movement controlling vertical
@@ -247,12 +239,12 @@ class StackVisualizer:
                   self.push_btn.config(state=NORMAL)
 
 
-
-window= Tk()
-window.title("Stack Visualization")
-window.geometry("600x600")
-window.maxsize(600,600)
-window.minsize(600,600)
-window.iconbitmap("stack_icon.ico")
-StackVisualizer(window)
-window.mainloop()
+if __name__ == '__main__':
+    window= Tk()
+    window.title("Stack Visualization")
+    window.geometry("600x600")
+    window.maxsize(600,600)
+    window.minsize(600,600)
+    window.iconbitmap("stack_icon.ico")
+    StackVisualizer(window)
+    window.mainloop()
